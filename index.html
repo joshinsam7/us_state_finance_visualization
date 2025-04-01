@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Homewor #4 : D3 Transitions</title>
+        <link rel="stylesheet" href="jbsam.css" />
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
+    </head>
+    <body >
+        <h1>Homework 4 : D3 Transition</h1>
+        <h2>Joshin Sam - jbsam@asu.edu</h2>
+   
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <p>Select your attribute :
+                <select class="options" id="optionsID">
+                    <option value="">Choose an option</option>
+                    <option value="Totals.Revenue">Revenue</option>
+                    <option value="Totals.Expenditure">Expenditure</option>
+                    <option value="Details.Financial Aid.Assistance and Subsidies">Financial Aid Assistance and Subsidies</option>
+                    <option value="Details.Interest on debt">Details about Interest on debt</option>
+                    <option value="Totals.Tax">Total Tax</option>
+                </select>
+            </p>
+            <p>
+                <label class="toggle"> Scale it through the years (1992 - 2019) : 
+                    <input type="checkbox" id="toggleID">
+                </label>
+            </p>            
+            <p> Year :
+                <input type="range" id="rangeYear" min="0" max="20" value="0">
+                <span id="rangeValue">1992</span> 
+            </p>
+
+            <button id="playButton">Play</button>
+        </div>
+        
+        <div class="chart-container">
+        <!-- hex map -->     
+            <div class="w3-panel w3-green" style="margin-top:20px;">
+                <p id="Year" style="text-align: center;font-size: 24px; font-weight: bold;">Year : 
+                    <span id="currYear">1992</span>
+                </p> 
+                <svg id="hexmap" width="800" height="600"></svg>
+                <svg id="legendID"  width="800" height="60"></svg>
+
+                <div class="scaling_container">
+                    <p id="scaleMinID">Min value : 
+                        <span id="spanMinValue"></span> 
+                    </p>
+                    <p id="scaleMaxID">Max value : 
+                        <span id="spanMaxValue"></span> 
+                    </p>
+                </div>
+            </div>
+
+            <!-- line chart -->
+            <div class="w3-panel w3-red" id="lineChart">
+                <svg id="linechartSVG" width="800" height="60" style="margin-top: 20px;"></svg>
+            </div>
+        </div>
+            <button id="clearLasso">Clear Lasso Selection</button>
+        
+        <script src ="jbsam.js"></script>
+    </body>
+</html>
