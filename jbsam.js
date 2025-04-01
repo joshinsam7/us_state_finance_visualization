@@ -514,7 +514,7 @@ function drawLasso() {
 
         } else {
             selectedStates.push({ stateName, filledColor: d3.select(this).attr("fill") });
-            d3.select(this).attr("stroke-width", "5px"); // Highlight selection
+            d3.select(this).attr("stroke-width", "5px"); 
             createLineChart(selectedStates, document.getElementById("optionsID").value, selectedYear);
         }
 
@@ -698,11 +698,10 @@ function createLineChart(selectedStates) {
         }
     });
 
-    // click on the x-axis and then draw the vertical line on the clicked x-axis point. 
     svg.selectAll(".x-axis .tick text")
-    .style("cursor", "pointer") // Make it look clickable
+    .style("cursor", "pointer")
     .on("click", function(event, d) {
-        let selectedYear = d; // 'd' is the year from the scale domain
+        let selectedYear = d;
 
         console.log("Clicked Year:", selectedYear);
         let selectedAttribute  = document.getElementById("optionsID").value;
